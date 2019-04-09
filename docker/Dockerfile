@@ -1,6 +1,6 @@
 # 基于哪个镜像.
 #FROM openjdk:8-alpine
-FROM openjdk:8-jre-alpine
+FROM registry.cn-hangzhou.aliyuncs.com/szss-safety/openjdk:8-jre-alpine
 
 MAINTAINER szss
 #设置时区
