@@ -5,6 +5,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/szss-safety/openjdk:8-jre-alpine
 MAINTAINER szss
 #设置时区
 ENV TZ Asia/Shanghai
+ENV PATH ${PATH}:/datax/bin
 
 ADD datax.tar.gz .
 
