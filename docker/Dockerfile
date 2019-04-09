@@ -14,6 +14,8 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
 	&& apk add --no-cache python bash curl \
 	# 启动定时任务
 	&& crond \
+	&& echo "\nexport PATH=${PATH}:/datax/bin\n" >> /etc/profile \
+	&& source /etc/profile
 	&& export JAVA_OPTS='-Xmx=2048M -Xss512K'
 
 #-Djava.security.egd为JAVA中的配置发生器,file:/dev/./urandom为Linux要表示urandom的路径,也就是/dev/urandom文件
