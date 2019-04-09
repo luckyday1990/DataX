@@ -3,6 +3,8 @@ package com.alibaba.datax.plugin.rdbms.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.LoggerFactory;
+
 import com.alibaba.datax.common.exception.DataXException;
 
 /**
@@ -60,7 +62,7 @@ public enum DataBaseType {
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
         }
-
+        LoggerFactory.getLogger(getClass()).info("new jdbc:{}", result);
         return result;
     }
 
