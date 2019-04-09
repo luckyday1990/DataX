@@ -51,11 +51,12 @@
 
     <!-- reader -->
     <module>mysqlreader</module>
-    <module>sqlserverreader</module>
+    <!--<module>sqlserverreader</module>
 
     <module>txtfilereader</module>
     <module>streamreader</module>
-    <module>mongodbreader</module>
+    <module>mongodbreader</module>-->
+
     <!--
 <module>drdsreader</module>
 <module>postgresqlreader</module>
@@ -73,10 +74,11 @@
 
     <!-- writer -->
     <module>mysqlwriter</module>
-    <module>sqlserverwriter</module>
+    <!--<module>sqlserverwriter</module>
     <module>txtfilewriter</module>
     <module>streamwriter</module>
-    <module>mongodbwriter</module>
+    <module>mongodbwriter</module>-->
+
     <!--<module>drdswriter</module>
     <module>odpswriter</module>
     <module>ftpwriter</module>
