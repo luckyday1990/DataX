@@ -6,15 +6,12 @@ MAINTAINER szss
 #设置时区
 ENV TZ Asia/Shanghai
 
-COPY datax.tar.gz .
+ADD datax.tar.gz .
 
 RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
 	&& echo http://mirrors.aliyun.com/alpine/v3.8/community/ >>/etc/apk/repositories \
 	&& apk update \
-	&& apk add python bash curl \
-	#&& curl -o datax.tar.gz http://datax-opensource.oss-cn-hangzhou.aliyuncs.com/datax.tar.gz \
-	&& tar -zxf datax.tar.gz \
-	&& rm -f datax.tar.gz \
+	&& apk add --no-cache python bash curl \
 	&& export JAVA_OPTS='-Xmx=2048M -Xss512K'
 
 #-Djava.security.egd为JAVA中的配置发生器,file:/dev/./urandom为Linux要表示urandom的路径,也就是/dev/urandom文件
