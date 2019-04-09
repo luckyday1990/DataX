@@ -12,17 +12,13 @@ import com.alibaba.datax.common.exception.DataXException;
  * <p/>
  */
 public enum DataBaseType {
-//    MySql("mysql", "com.mysql.jdbc.Driver"),
-    MySql("mysql", "com.mysql.cj.jdbc.Driver"),
-    Tddl("mysql", "com.mysql.jdbc.Driver"),
-    DRDS("drds", "com.mysql.jdbc.Driver"),
-    Oracle("oracle", "oracle.jdbc.OracleDriver"),
+    // MySql("mysql", "com.mysql.jdbc.Driver"),
+    MySql("mysql", "com.mysql.cj.jdbc.Driver"), Tddl("mysql", "com.mysql.jdbc.Driver"),
+    DRDS("drds", "com.mysql.jdbc.Driver"), Oracle("oracle", "oracle.jdbc.OracleDriver"),
     SQLServer("sqlserver", "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
     PostgreSQL("postgresql", "org.postgresql.Driver"),
-    RDBMS("rdbms", "com.alibaba.datax.plugin.rdbms.util.DataBaseType"),
-    DB2("db2", "com.ibm.db2.jcc.DB2Driver"),
-    ADS("ads","com.mysql.jdbc.Driver");
-
+    RDBMS("rdbms", "com.alibaba.datax.plugin.rdbms.util.DataBaseType"), DB2("db2", "com.ibm.db2.jcc.DB2Driver"),
+    ADS("ads", "com.mysql.jdbc.Driver");
 
     private String typeName;
     private String driverClassName;
@@ -42,12 +38,13 @@ public enum DataBaseType {
         switch (this) {
             case MySql:
             case DRDS:
-                /*suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&rewriteBatchedStatements=true";
+                suffix =
+                    "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&rewriteBatchedStatements=true";
                 if (jdbc.contains("?")) {
                     result = jdbc + "&" + suffix;
                 } else {
                     result = jdbc + "?" + suffix;
-                }*/
+                }
                 break;
             case Oracle:
                 break;
@@ -56,7 +53,7 @@ public enum DataBaseType {
             case DB2:
                 break;
             case PostgreSQL:
-            	break;
+                break;
             case RDBMS:
                 break;
             default:
@@ -71,7 +68,8 @@ public enum DataBaseType {
         String suffix = null;
         switch (this) {
             case MySql:
-                suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&tinyInt1isBit=false";
+                suffix =
+                    "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&tinyInt1isBit=false";
                 if (jdbc.contains("?")) {
                     result = jdbc + "&" + suffix;
                 } else {
@@ -93,7 +91,7 @@ public enum DataBaseType {
             case DB2:
                 break;
             case PostgreSQL:
-            	break;
+                break;
             case RDBMS:
                 break;
             default:
@@ -120,14 +118,13 @@ public enum DataBaseType {
                 break;
             case DB2:
             case PostgreSQL:
-            	break;
+                break;
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
         }
 
         return result;
     }
-
 
     public String quoteColumnName(String columnName) {
         String result = columnName;
@@ -190,6 +187,7 @@ public enum DataBaseType {
         }
         return null;
     }
+
     public String getTypeName() {
         return typeName;
     }
