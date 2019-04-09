@@ -7,6 +7,7 @@ MAINTAINER szss
 ENV TZ Asia/Shanghai
 
 ADD datax.tar.gz .
+ADD run.sh .
 
 RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
 	&& echo http://mirrors.aliyun.com/alpine/v3.8/community/ >>/etc/apk/repositories \
@@ -17,4 +18,4 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
 	&& export JAVA_OPTS='-Xmx=2048M -Xss512K'
 
 #-Djava.security.egd为JAVA中的配置发生器,file:/dev/./urandom为Linux要表示urandom的路径,也就是/dev/urandom文件
-ENTRYPOINT ["/bin/bash","-c","tail -f /dev/null"]
+ENTRYPOINT ["/bin/bash","-c","chmod +x run.sh && ./run.sh"]
