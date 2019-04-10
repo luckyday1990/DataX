@@ -14,11 +14,11 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
 	&& apk add --no-cache python bash curl \
 	# 启动定时任务
 	&& crond \
-	&& echo -e "\nexport PATH=${PATH}:/datax/bin\n" >> /etc/profile \
-	&& source /etc/profile \
+	&& chmod +x /datax/bin/datax.py \
 	&& export JAVA_OPTS='-Xmx=2048M -Xss512K'
 
 ENV PATH ${PATH}:/datax/bin
+ENV DATAX_JOB_DIR="/data/datax/job"
 
 #-Djava.security.egd为JAVA中的配置发生器,file:/dev/./urandom为Linux要表示urandom的路径,也就是/dev/urandom文件
 ENTRYPOINT ["/bin/bash","-c","tail -f /dev/null"]
