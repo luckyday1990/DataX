@@ -6,6 +6,8 @@ MAINTAINER szss
 #设置时区
 ENV TZ Asia/Shanghai
 
+ENV APP_NAME datax
+
 ADD datax.tar.gz .
 
 RUN echo http://mirrors.aliyun.com/alpine/v3.8/main/ >/etc/apk/repositories \
