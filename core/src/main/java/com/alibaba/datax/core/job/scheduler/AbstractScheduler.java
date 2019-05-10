@@ -1,5 +1,11 @@
 package com.alibaba.datax.core.job.scheduler;
 
+import java.util.List;
+
+import org.apache.commons.lang.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.alibaba.datax.common.exception.DataXException;
 import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.datax.core.statistics.communication.Communication;
@@ -9,11 +15,6 @@ import com.alibaba.datax.core.util.ErrorRecordChecker;
 import com.alibaba.datax.core.util.FrameworkErrorCode;
 import com.alibaba.datax.core.util.container.CoreConstant;
 import com.alibaba.datax.dataxservice.face.domain.enums.State;
-import org.apache.commons.lang.Validate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 public abstract class AbstractScheduler {
     private static final Logger LOG = LoggerFactory
@@ -39,7 +40,7 @@ public abstract class AbstractScheduler {
         int jobReportIntervalInMillSec = configurations.get(0).getInt(
                 CoreConstant.DATAX_CORE_CONTAINER_JOB_REPORTINTERVAL, 30000);
         int jobSleepIntervalInMillSec = configurations.get(0).getInt(
-                CoreConstant.DATAX_CORE_CONTAINER_JOB_SLEEPINTERVAL, 10000);
+                CoreConstant.DATAX_CORE_CONTAINER_JOB_SLEEPINTERVAL, 3000);
 
         this.jobId = configurations.get(0).getLong(
                 CoreConstant.DATAX_CORE_CONTAINER_JOB_ID);
